@@ -1,3 +1,36 @@
+.product-card {
+  position: relative;
+}
+
+/* Overlay for product description */
+.product-desc-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  color: #222;
+  border-radius: 4px;
+  z-index: 2;
+  padding: 18px 14px 14px 14px;
+  font-size: 15px;
+  box-shadow: 0 2px 12px 0 #0002;
+  overflow-y: auto;
+  transition: opacity 0.2s;
+}
+
+.product-card:focus-within .product-desc-overlay,
+.product-card:hover .product-desc-overlay {
+  display: block;
+}
+
+.product-desc-overlay strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -19,10 +52,29 @@ body {
 }
 
 /* header */
+
+/* L'Oréal style black header */
 .site-header {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
+  background: #111;
+  color: #fff;
+}
+
+.site-header .site-title {
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* White logo for black header */
+.site-header .logo {
+  filter: brightness(0) invert(1);
+  width: 250px;
+  margin-bottom: 15px;
 }
 
 .logo {
@@ -186,6 +238,14 @@ body {
   display: flex;
   gap: 15px;
   min-height: 160px;
+  cursor: pointer;
+}
+
+/* Highlight selected product card */
+.product-card.selected {
+  border: 2.5px solid #0072ce;
+  background: #e6f0fa;
+  box-shadow: 0 0 0 2px #0072ce33;
 }
 
 .product-card img {
@@ -230,6 +290,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+/* L'Oréal blue for 'You' in chat */
+.chat-username-you {
+  color: #0072ce;
+  font-weight: bold;
 }
 
 .generate-btn {
